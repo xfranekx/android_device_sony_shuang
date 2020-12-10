@@ -148,8 +148,10 @@ WITH_LINEAGE_CHARGER := true
 BLUE_LED_PATH := /sys/class/leds/notification/brightness
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
-# CMHW
-BOARD_HARDWARE_CLASS := $(DEVICE_PATH)/cmhw
+# Lineage Hardware
+BOARD_HARDWARE_CLASS += \
+$(COMMON_PATH)/lineagehw \
+$(DEVICE_PATH)/cmhw
 
 # FM radio
 TARGET_QCOM_NO_FM_FIRMWARE := true
