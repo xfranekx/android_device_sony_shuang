@@ -36,7 +36,7 @@ fi
 . "$HELPER"
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$LINEAGEOS__ROOT"
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGEOS_ROOT"
 
 # Copyright headers and guards
 write_headers
