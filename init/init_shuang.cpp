@@ -1,6 +1,5 @@
 /*
-   Copyright (c) 2016, The CyanogenMod Project
-                 2017, The LineageOS Project
+   Copyright (c) 2020, The LineageOS Project
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are
@@ -41,14 +40,22 @@
 #include "util.h"
 #include "vendor_init.h"
 
+#include <android-base/logging.h>
+#include <android-base/file.h>
+#include <android-base/properties.h>
+
+
 #define LTALABEL "/lta-label"
 
 enum { D2004, D2005, D2104, D2105, D2114 };
 
+
+using android::base::GetProperty;
+
+
 void property_override(char const prop[], char const value[])
 {
     prop_info *pi;
-
     pi = (prop_info*) __system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
@@ -175,6 +182,7 @@ void vendor_load_properties() {
     };
 
     // Get model just for log
-    //device = property_get("ro.product.device");
-    //ERROR("Setting build properties for %s device\n", device.c_str());
+    //device = GetProperty("ro.product.device");
+    //LOG(ERROR) ("Setting build properties for %s device\n", device.c_str());
+    //idk how to use log(error) in C file
 }
