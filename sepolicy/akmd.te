@@ -1,0 +1,7 @@
+type akmd, domain, domain_deprecated;
+type akmd_exec, exec_type, file_type;
+
+# Started by init
+init_daemon_domain(akmd);
+
+allow akmd system_data_file:file open;
