@@ -175,6 +175,6 @@ void vendor_load_properties() {
     };
 
     // Get model just for log
-    device = property_get("ro.product.device");
-    ERROR("Setting build properties for %s device\n", device.c_str());
+    //device = property_get("ro.product.device");
+    //ERROR("Setting build properties for %s device\n", device.c_str());
 }
