@@ -28,9 +28,9 @@
  */
 
 #include <dirent.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
@@ -182,7 +182,7 @@ void vendor_load_properties() {
     };
 
     // Get model just for log
-    //device = GetProperty("ro.product.device");
-    //LOG(ERROR) ("Setting build properties for %s device\n", device.c_str());
-    //idk how to use log(error) in C file
+    device = GetProperty("ro.product.device");
+    LOG(INFO) << "Setting build properties for" << device <<  "device";
+
 }
