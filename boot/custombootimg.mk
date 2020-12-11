@@ -1,6 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 
-DTBTOOL := $(HOST_OUT_EXECUTABLES)/dtbToolCM$(HOST_EXECUTABLE_SUFFIX)
+DTBTOOL := $(which dtbToolCM)
 INITSONY := $(PRODUCT_OUT)/utilities/init_sony
 
 uncompressed_ramdisk := $(PRODUCT_OUT)/ramdisk.cpio
@@ -10,7 +10,7 @@ $(uncompressed_ramdisk): $(INSTALLED_RAMDISK_TARGET)
 INSTALLED_DTIMAGE_TARGET := $(PRODUCT_OUT)/dt.img
 $(INSTALLED_DTIMAGE_TARGET): \
 		$(DTBTOOL) \
-		$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr \
+		kernel/sony/msm8x10/KERNEL_OBJ/usr \
 		$(INSTALLED_KERNEL_TARGET)
 	@echo "----- Making DT image ------"
 	$(call pretty,"Target DT image: $@")
