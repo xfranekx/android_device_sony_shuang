@@ -34,8 +34,9 @@
 
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
+#include <cutils/properties.h>
+#include <init/util.h>
 
-#include "log.h"
 #include "property_service.h"
 #include "util.h"
 #include "vendor_init.h"
@@ -51,6 +52,7 @@ enum { D2004, D2005, D2104, D2105, D2114 };
 
 
 using android::base::GetProperty;
+using android::init::ImportKernelCmdline;
 
 
 void property_override(char const prop[], char const value[])
@@ -118,7 +120,7 @@ void vendor_load_properties() {
     std::string device;
 
     // Set DualSIM based in cmdline
-    import_kernel_cmdline(0, import_kernel_nv);
+    //ImportKernelCmdline(0, import_kernel_nv);
 
     // Search model_number from '/lta-label'
     switch (model_number_from_ltalabel()) {
@@ -182,7 +184,7 @@ void vendor_load_properties() {
     };
 
     // Get model just for log
-    device = GetProperty("ro.product.device");
+    device = GetProperty("ro.product.device","");
     LOG(INFO) << "Setting build properties for" << device <<  "device";
 
 }
