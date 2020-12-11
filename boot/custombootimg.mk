@@ -37,11 +37,9 @@ $(recovery_uncompressed_device_ramdisk): $(MKBOOTFS) \
 	$(hide) rm -f $(recovery_uncompressed_ramdisk)
 	$(hide) cp $(recovery_uncompressed_device_ramdisk) $(recovery_uncompressed_ramdisk)
 
-recovery_ramdisk := $(PRODUCT_OUT)/ramdisk-recovery.img
-$(recovery_ramdisk): $(MINIGZIP) \
-		$(recovery_uncompressed_device_ramdisk)
-	@echo "----- Making compressed recovery ramdisk ------"
-	$(hide) $(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $@
+
+
+
 
 INSTALLED_BOOTIMAGE_TARGET := $(PRODUCT_OUT)/boot.img
 $(INSTALLED_BOOTIMAGE_TARGET): \
