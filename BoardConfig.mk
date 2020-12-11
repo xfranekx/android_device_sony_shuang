@@ -159,5 +159,5 @@ TARGET_INIT_VENDOR_LIB := libinit_shuang
 TARGET_RECOVERY_DEVICE_MODULES := libinit_shuang
 
 # SEPolicy
-include device/qcom/sepolicy/sepolicy.mk
+include device/qcom/sepolicy/SEPolicy.mk
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy
