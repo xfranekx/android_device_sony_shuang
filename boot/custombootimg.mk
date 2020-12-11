@@ -48,8 +48,8 @@ $(INSTALLED_BOOTIMAGE_TARGET): \
 		$(recovery_uncompressed_device_ramdisk) \
 		$(INSTALLED_RAMDISK_TARGET) \
 		$(INITSONY) \
-		$(PRODUCT_OUT)/utilities/toybox \
-		$(PRODUCT_OUT)/utilities/keycheck \
+		$(which toybox) \
+		$(which keycheck) \
 		$(MKBOOTIMG) $(MINIGZIP) \
 		$(INTERNAL_BOOTIMAGE_FILES) \
 		$(INSTALLED_DTIMAGE_TARGET)
